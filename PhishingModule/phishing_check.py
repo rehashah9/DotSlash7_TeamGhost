@@ -4,7 +4,7 @@ import pytesseract
 from PIL import Image
 import textwrap
 import google.generativeai as genai
-from IPython.display import Markdown
+#from IPython.display import Markdown
 
 def phish_check(link):
     driver = webdriver.Chrome()
@@ -20,13 +20,14 @@ def phish_check(link):
     print(text)
     return(text)
 
-l="https://goodreads.com/"
+l="http://telstra-101474.weeblysite.com/"
 
 tt=phish_check(l)
 
 def to_markdown(text):
     text = text.replace('•', '  *')
-    return Markdown(textwrap.indent(text, '> ', predicate=lambda _: True))
+    return(textwrap.indent(text, '> ', predicate=lambda _: True))
+    #return Markdown(textwrap.indent(text, '> ', predicate=lambda _: True))
 
 genai.configure(api_key="AIzaSyAZzGyJ9DlHZYjmTJHR33FkmN09LU0W8-Q")
 
