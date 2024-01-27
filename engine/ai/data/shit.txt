@@ -1,0 +1,48 @@
+2) Table: aws_ec2_instance_metric_cpu_utilization - Query AWS EC2 Instance Metrics using SQL
+
+Table Usage Guide:
+The aws_ec2_instance_metric_cpu_utilization table in Steampipe provides you with information about CPU utilization metrics of EC2 instances within AWS CloudWatch. This table allows you, as a DevOps engineer, system administrator, or other technical professional, to query CPU-specific details, including the instance's average, maximum, and minimum CPU utilization. You can utilize this table to gather insights on instance performance, such as identifying instances with high CPU utilization, analyzing CPU usage patterns, and more. The schema outlines the various attributes of the EC2 instance CPU utilization metrics for you, including the instance ID, namespace, metric name, and statistics.Format: 
+
+
+Schema for aws_ec2_instance_metric_cpu_utilization:
+Name	Type	Operators	Description
+_ctx	jsonb		Steampipe context in JSON form, e.g. connection_name.
+account_id	text		The AWS Account ID in which the resource is located.
+average	double precision		The average of the metric values that correspond to the data point.
+instance_id	text		The ID of the instance.
+maximum	double precision		The maximum metric value for the data point.
+metric_name	text		The name of the metric.
+minimum	double precision		The minimum metric value for the data point.
+namespace	text		The metric namespace.
+partition	text		The AWS partition in which the resource is located (aws, aws-cn, or aws-us-gov).
+region	text		The AWS Region in which the resource is located.
+sample_count	double precision		The number of metric values that contributed to the aggregate value of this data point.
+sum	double precision		The sum of the metric values for the data point.
+timestamp	timestamp with time zone		The time stamp used for the data point.
+unit	text		The standard unit for the data point.
+
+
+3) Table: aws_ec2_instance_metric_cpu_utilization_daily - Query AWS EC2 Instances using SQL
+
+Table Usage Guide:
+The aws_ec2_instance_metric_cpu_utilization_daily table in Steampipe provides you with information about the daily CPU utilization metrics of AWS EC2 instances. This table allows you, as a DevOps engineer, to query instance-specific details, including average, maximum, and minimum CPU utilization, and associated timestamps. You can utilize this table to gather insights on CPU usage patterns over time, such as instances with high or low CPU utilization, instances with abnormal CPU usage patterns, and more. The schema outlines the various attributes of the CPU utilization metrics for you, including the instance ID, timestamp, average CPU utilization, maximum CPU utilization, and minimum CPU utilization.The aws_ec2_instance_metric_cpu_utilization_daily table provides you with metric statistics at 24 hour intervals for the last year.
+
+Schema for aws_ec2_instance_metric_cpu_utilization_daily:
+
+Name	Type	Operators	Description
+_ctx	jsonb		Steampipe context in JSON form, e.g. connection_name.
+account_id	text		The AWS Account ID in which the resource is located.
+average	double precision		The average of the metric values that correspond to the data point.
+instance_id	text		The ID of the instance.
+maximum	double precision		The maximum metric value for the data point.
+metric_name	text		The name of the metric.
+minimum	double precision		The minimum metric value for the data point.
+namespace	text		The metric namespace.
+partition	text		The AWS partition in which the resource is located (aws, aws-cn, or aws-us-gov).
+region	text		The AWS Region in which the resource is located.
+sample_count	double precision		The number of metric values that contributed to the aggregate value of this data point.
+sum	double precision		The sum of the metric values for the data point.
+timestamp	timestamp with time zone		The time stamp used for the data point.
+unit	text		The standard unit for the data point.
+
+User Query: ﻿List of EC2 instances provisioned with undesired(for example t2.large and m3.medium is desired) instance type(s)﻿

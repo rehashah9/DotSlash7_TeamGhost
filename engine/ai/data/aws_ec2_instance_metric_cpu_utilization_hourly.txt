@@ -1,0 +1,39 @@
+Schema for Table: aws_ec2_instance_metric_cpu_utilization_hourly
+
+Table: aws_ec2_instance_metric_cpu_utilization_hourly - Query AWS EC2 Instance Metrics using SQL
+
+About Table :The AWS EC2 Instance Metrics service provides insights into the performance of your EC2 instances. It allows you to monitor CPU utilization in an hourly manner using SQL queries. This can assist in identifying performance bottlenecks and optimizing resource usage for your EC2 instances.
+
+Table Usage Guide: The aws_ec2_instance_metric_cpu_utilization_hourly table in Steampipe provides you with information about the CPU Utilization metrics of EC2 instances in AWS. This table enables you as a DevOps engineer, system administrator, or other technical professional to query CPU utilization metrics on an hourly basis. This can be useful for you in monitoring system performance, identifying potential bottlenecks, and planning for capacity. The schema outlines the various attributes of the EC2 instance CPU utilization metrics for you, including the instance ID, timestamp, maximum, minimum, and average CPU utilization.
+
+Examples for SQL Queries & their Use Case for Table: 
+
+Query Name: Basic info
+Query Meaning: Explore which instances in your AWS EC2 service are experiencing fluctuating CPU utilization over time. This allows you to pinpoint specific locations where performance optimization may be needed to improve overall efficiency.
+SQL Query: select instance_id , timestamp , minimum , maximum , average , sample_count from aws_ec2_instance_metric_cpu_utilization_hourly order by instance_id , timestamp ;
+
+Query Name: CPU Over 80% average
+Query Meaning: Identify instances where EC2 instances have an average CPU utilization exceeding 80%. This can help in monitoring and optimizing resource usage, ensuring efficient performance of your AWS infrastructure.
+SQL Query: select instance_id , timestamp , round ( minimum :: numeric , 2 ) as min_cpu , round ( maximum :: numeric , 2 ) as max_cpu , round ( average :: numeric , 2 ) as avg_cpu , sample_count from aws_ec2_instance_metric_cpu_utilization_hourly where average > 80 order by instance_id , timestamp ;
+
+Query Name: CPU hourly average < 1%
+Query Meaning: Determine the areas in which your AWS EC2 instances' CPU utilization is less than 1% on average per hour. This can help you identify underutilized resources and optimize your AWS usage for cost-effectiveness.
+SQL Query: select instance_id , timestamp , round ( minimum :: numeric , 2 ) as min_cpu , round ( maximum :: numeric , 2 ) as max_cpu , round ( average :: numeric , 2 ) as avg_cpu , sample_count from aws_ec2_instance_metric_cpu_utilization_hourly where average < 1 order by instance_id , timestamp ;
+
+Schema for aws_ec2_instance_metric_cpu_utilization_hourly: 
+
+Name	Type	Operators	Description	
+_ctx	jsonb		Steampipe context in JSON form, e.g. connection_name.	
+account_id	text		The AWS Account ID in which the resource is located.	
+average	double precision		The average of the metric values that correspond to the data point.	
+instance_id	text		The ID of the instance.	
+maximum	double precision		The maximum metric value for the data point.	
+metric_name	text		The name of the metric.	
+minimum	double precision		The minimum metric value for the data point.	
+namespace	text		The metric namespace.	
+partition	text		The AWS partition in which the resource is located (aws, aws-cn, or aws-us-gov).	
+region	text		The AWS Region in which the resource is located.	
+sample_count	double precision		The number of metric values that contributed to the aggregate value of this data point.	
+sum	double precision		The sum of the metric values for the data point.	
+timestamp	timestamp with time zone		The time stamp used for the data point.	
+unit	text		The standard unit for the data point.	

@@ -1,0 +1,17 @@
+{
+    "aws_ec2_instances_fetch_all": {
+        "query": "SELECT * FROM {{connection_id}}.aws_ec2_instance;",
+        "index": "aws_ec2_instance",
+        "type": "aws_ec2_instance"
+    },
+    "aws_ec2_instance": {
+        "query": "SELECT * FROM {{connection_id}}.aws_ec2_instance where instance_id = '{{instance_id}}';",
+        "index": "aws_ec2_instance",
+        "type": "aws_ec2_instance"
+    },
+    "aws_account":{
+        "query": "SELECT * FROM {{connection_id}}.aws_account;",
+        "index": "aws_account",
+        "type": "aws_account"
+    }
+}

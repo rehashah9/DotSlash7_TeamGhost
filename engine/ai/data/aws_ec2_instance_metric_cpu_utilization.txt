@@ -1,0 +1,35 @@
+Schema for Table: aws_ec2_instance_metric_cpu_utilization
+
+Table: aws_ec2_instance_metric_cpu_utilization - Query AWS EC2 Instance Metrics using SQL
+
+About Table :The AWS EC2 Instance Metrics is a feature of Amazon EC2 (Elastic Compute Cloud) that provides detailed reports on the performance of your EC2 instances. These metrics include CPU utilization, which measures the percentage of total CPU time spent on various tasks within the EC2 instance. By querying these metrics using SQL, you can gain insights into your instance's performance and optimize resource usage.
+
+Table Usage Guide: The aws_ec2_instance_metric_cpu_utilization table in Steampipe provides you with information about CPU utilization metrics of EC2 instances within AWS CloudWatch. This table allows you, as a DevOps engineer, system administrator, or other technical professional, to query CPU-specific details, including the instance's average, maximum, and minimum CPU utilization. You can utilize this table to gather insights on instance performance, such as identifying instances with high CPU utilization, analyzing CPU usage patterns, and more. The schema outlines the various attributes of the EC2 instance CPU utilization metrics for you, including the instance ID, namespace, metric name, and statistics.
+
+Examples for SQL Queries & their Use Case for Table: 
+
+Query Name: Basic info
+Query Meaning: Explore which AWS EC2 instances have varying CPU utilization levels and when these fluctuations occur. This information can help identify instances that may require optimization for improved performance and cost efficiency.
+SQL Query: select instance_id , timestamp , minimum , maximum , average , sample_count from aws_ec2_instance_metric_cpu_utilization order by instance_id , timestamp ;
+
+Query Name: CPU Over 80% average
+Query Meaning: Determine the areas in which instances of your AWS EC2 service are experiencing high CPU utilization, specifically where the average CPU usage exceeds 80%. This can help in identifying potential performance issues and optimize resource allocation.
+SQL Query: select instance_id , timestamp , round ( minimum :: numeric , 2 ) as min_cpu , round ( maximum :: numeric , 2 ) as max_cpu , round ( average :: numeric , 2 ) as avg_cpu , sample_count from aws_ec2_instance_metric_cpu_utilization where average > 80 order by instance_id , timestamp ;
+
+Schema for aws_ec2_instance_metric_cpu_utilization: 
+
+Name	Type	Operators	Description	
+_ctx	jsonb		Steampipe context in JSON form, e.g. connection_name.	
+account_id	text		The AWS Account ID in which the resource is located.	
+average	double precision		The average of the metric values that correspond to the data point.	
+instance_id	text		The ID of the instance.	
+maximum	double precision		The maximum metric value for the data point.	
+metric_name	text		The name of the metric.	
+minimum	double precision		The minimum metric value for the data point.	
+namespace	text		The metric namespace.	
+partition	text		The AWS partition in which the resource is located (aws, aws-cn, or aws-us-gov).	
+region	text		The AWS Region in which the resource is located.	
+sample_count	double precision		The number of metric values that contributed to the aggregate value of this data point.	
+sum	double precision		The sum of the metric values for the data point.	
+timestamp	timestamp with time zone		The time stamp used for the data point.	
+unit	text		The standard unit for the data point.	
