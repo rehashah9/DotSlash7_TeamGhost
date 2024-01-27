@@ -13,5 +13,11 @@
         "query": "SELECT * FROM {{connection_id}}.aws_account;",
         "index": "aws_account",
         "type": "aws_account"
+    },
+    "aws_ec2_instance_metric_cpu_utilization_hourly":{
+        "query": "select instance_id, timestamp, minimum, maximum, average, sample_count from aws_ec2_instance_metric_cpu_utilization_hourly where instance_id = '{{instance_id}}' order by timestamp;",
+        "index": "aws_account",
+        "type": "aws_account"
     }
+
 }
