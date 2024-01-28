@@ -4,6 +4,7 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import mean_squared_error
 import matplotlib.pyplot as plt
 import joblib
+import streamlit as st
 
 # Load the saved SVM model
 loaded_svm_model = joblib.load('svm_model_daily.pkl')
@@ -38,12 +39,44 @@ y_original_inv = scaler.inverse_transform(y_original)
 rmse_original = np.sqrt(mean_squared_error(y_original_inv, y_pred_original_inv))
 print(f'Root Mean Squared Error (RMSE) on Original Data: {rmse_original}')
 
-# Plot the original data
-plt.figure(figsize=(12, 6))
+# Number of days to forecast beyond the original data
+forecast_days = 30  # You can adjust this value as needed
+
+# Initialize the last known sequence to start forecasting
+last_sequence = X_original[-1]
+
+# Forecast into the future
+forecasted_values = []
+for _ in range(forecast_days):
+    # Reshape the last known sequence for prediction
+    prediction_features = last_sequence.reshape(1, -1)
+    
+    # Make prediction using the loaded SVM model
+    next_prediction = loaded_svm_model.predict(prediction_features)
+    
+    # Inverse transform the prediction
+    next_prediction_inv = scaler.inverse_transform(next_prediction.reshape(-1, 1)).flatten()
+    
+    # Append the prediction to the forecasted values
+    forecasted_values.append(next_prediction_inv[0])
+    
+    # Update the last sequence by removing the first entry and adding the predicted value
+    last_sequence = np.roll(last_sequence, -1)
+    last_sequence[-1] = next_prediction
+    
+# Extend the index to include the forecasted days
+forecast_index = pd.date_range(start=original_data.index[-1] + pd.Timedelta(days=1), periods=forecast_days, freq='D')
+
+st.title('Support Vector Machine Time Series Prediction')
+st.write("### Actual vs Predicted CPU Utilization")
+
+# Plot the original data and the forecasted values
+fig = plt.figure(figsize=(12,6))
 plt.plot(original_data.index[look_back:], y_original_inv, label='Actual')
 plt.plot(original_data.index[look_back:], y_pred_original_inv, label='Predicted')
+plt.plot(forecast_index, forecasted_values, label='Forecast', linestyle='--')
 plt.xlabel('Date')
 plt.ylabel('Maximum CPU Utilization')
 plt.legend()
-plt.title('Support Vector Machine Time Series Prediction (Original Data)')
-plt.show()
+plt.title('Support Vector Machine Time Series Prediction (Original Data + Forecast)')
+st.write(fig)
