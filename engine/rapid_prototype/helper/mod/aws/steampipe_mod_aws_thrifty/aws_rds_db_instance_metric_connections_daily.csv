@@ -1,0 +1,6 @@
+db_instance_identifier,metric_name,namespace,average,maximum,minimum,sample_count,sum,unit,timestamp,partition,region,account_id,_ctx
+test-1,DatabaseConnections,AWS/RDS,0.38691588785046727,7,0,535,207,Count,2024-01-23T20:30:00+05:30,aws,ap-south-1,895261382174,"{""connection_name"":""aws_demo""}"
+test-1,DatabaseConnections,AWS/RDS,0.19652777777777777,7,0,1440,283,Count,2024-01-24T20:30:00+05:30,aws,ap-south-1,895261382174,"{""connection_name"":""aws_demo""}"
+test-1,DatabaseConnections,AWS/RDS,0.44930555555555557,7,0,1440,647,Count,2024-01-26T20:30:00+05:30,aws,ap-south-1,895261382174,"{""connection_name"":""aws_demo""}"
+test-1,DatabaseConnections,AWS/RDS,0,0,0,1440,0,Count,2024-01-25T20:30:00+05:30,aws,ap-south-1,895261382174,"{""connection_name"":""aws_demo""}"
+test-1,DatabaseConnections,AWS/RDS,0.1320754716981132,1,0,53,7,Count,2024-01-27T20:30:00+05:30,aws,ap-south-1,895261382174,"{""connection_name"":""aws_demo""}"

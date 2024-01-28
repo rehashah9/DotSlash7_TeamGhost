@@ -1,0 +1,841 @@
+{
+  "group_id": "root_result_group",
+  "title": "EC2 Checks",
+  "description": "",
+  "tags": {},
+  "summary": {
+    "status": { "alarm": 29, "ok": 8, "info": 18, "skip": 0, "error": 17 }
+  },
+  "groups": [
+    {
+      "group_id": "aws_thrifty.benchmark.ec2",
+      "title": "EC2 Checks",
+      "description": "Thrifty developers eliminate unused and under-utilized EC2 instances.",
+      "tags": {
+        "category": "Cost",
+        "plugin": "aws",
+        "service": "AWS/EC2",
+        "type": "Benchmark"
+      },
+      "summary": {
+        "status": { "alarm": 29, "ok": 8, "info": 18, "skip": 0, "error": 17 }
+      },
+      "groups": [],
+      "controls": [
+        {
+          "summary": { "alarm": 0, "ok": 0, "info": 0, "skip": 0, "error": 0 },
+          "results": null,
+          "control_id": "control.ec2_application_lb_unused",
+          "description": "Application load balancers with no targets attached still cost money and should be deleted.",
+          "severity": "low",
+          "tags": {
+            "category": "Cost",
+            "class": "unused",
+            "plugin": "aws",
+            "service": "AWS/EC2"
+          },
+          "title": "Application load balancers having no targets attached should be deleted",
+          "run_status": 4,
+          "run_error": ""
+        },
+        {
+          "summary": { "alarm": 0, "ok": 0, "info": 0, "skip": 0, "error": 0 },
+          "results": null,
+          "control_id": "control.ec2_classic_lb_unused",
+          "description": "Classic load balancers with no instances attached still cost money should be deleted.",
+          "severity": "low",
+          "tags": {
+            "category": "Cost",
+            "class": "unused",
+            "plugin": "aws",
+            "service": "AWS/EC2"
+          },
+          "title": "Classic load balancers having no instances attached should be deleted",
+          "run_status": 4,
+          "run_error": ""
+        },
+        {
+          "summary": { "alarm": 0, "ok": 0, "info": 0, "skip": 0, "error": 0 },
+          "results": null,
+          "control_id": "control.ec2_gateway_lb_unused",
+          "description": "Gateway load balancers with no targets attached still cost money and should be deleted.",
+          "severity": "low",
+          "tags": {
+            "category": "Cost",
+            "class": "unused",
+            "plugin": "aws",
+            "service": "AWS/EC2"
+          },
+          "title": "Gateway load balancers having no targets attached should be deleted",
+          "run_status": 4,
+          "run_error": ""
+        },
+        {
+          "summary": { "alarm": 10, "ok": 8, "info": 0, "skip": 0, "error": 0 },
+          "results": [
+            {
+              "reason": "C7N has used t2.micro.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-064ef2685f1c5cecb",
+              "status": "alarm",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "lookover-ai-test-1 has used t2.micro.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0fe6ef2702cf5eee4",
+              "status": "alarm",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "i-0df46766614b9082f has used t2.micro.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0df46766614b9082f",
+              "status": "alarm",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "lookover-platform-api has used t2.micro.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0a921d0d8e11d350e",
+              "status": "alarm",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "test-dot-slash has used t2.xlarge.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-031fc74f32410db7d",
+              "status": "alarm",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "mongo-db-instance-test has used t2.medium.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0e7d299a682aa8c11",
+              "status": "alarm",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "lookover-api has used m4.large.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0e318bfd5d116d34b",
+              "status": "alarm",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "trials2 has used t2.medium.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0acc16e0f945a5290",
+              "status": "alarm",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "ubuntu-test has used t2.xlarge.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0c6b18af18da6c68c",
+              "status": "alarm",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "es-ec2 has used t2.micro.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-081b04b1664a554ae",
+              "status": "alarm",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "Dream Factory has used t3a.small.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0395f6b638adf2ba2",
+              "status": "ok",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "Elastic Search has used t3a.small.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-06f180457ad31ed8b",
+              "status": "ok",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "i-0b17f02ce7ba1e8d6 has used t3a.small.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0b17f02ce7ba1e8d6",
+              "status": "ok",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "elasticSearchDocker has used t3.small.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0e6cdcc7fbadc55b4",
+              "status": "ok",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "Cloud Defender has used c5a.xlarge.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0a272d07055e14ff1",
+              "status": "ok",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "CopilotLookoverAI has used t3.xlarge.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0779ec6ec993ca07a",
+              "status": "ok",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "ubuntu-test-final has used c5.xlarge.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0f02c494bd2aa66ea",
+              "status": "ok",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "Appsmith_backend has used t3.medium.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0cf85c68cb9355c23",
+              "status": "ok",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            }
+          ],
+          "control_id": "control.ec2_instance_older_generation",
+          "description": "EC2 instances should not use older generation t2, m3, and m4 instance types as t3 and m5 are more cost effective.",
+          "severity": "low",
+          "tags": {
+            "category": "Cost",
+            "class": "unused",
+            "plugin": "aws",
+            "service": "AWS/EC2"
+          },
+          "title": "EC2 instances should not use older generation t2, m3, and m4 instance types",
+          "run_status": 4,
+          "run_error": ""
+        },
+        {
+          "summary": { "alarm": 18, "ok": 0, "info": 0, "skip": 0, "error": 0 },
+          "results": [
+            {
+              "reason": "C7N is not using Graviton processor.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-064ef2685f1c5cecb",
+              "status": "alarm",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "lookover-ai-test-1 is not using Graviton processor.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0fe6ef2702cf5eee4",
+              "status": "alarm",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "Dream Factory is not using Graviton processor.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0395f6b638adf2ba2",
+              "status": "alarm",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "i-0df46766614b9082f is not using Graviton processor.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0df46766614b9082f",
+              "status": "alarm",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "lookover-platform-api is not using Graviton processor.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0a921d0d8e11d350e",
+              "status": "alarm",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "test-dot-slash is not using Graviton processor.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-031fc74f32410db7d",
+              "status": "alarm",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "Elastic Search is not using Graviton processor.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-06f180457ad31ed8b",
+              "status": "alarm",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "i-0b17f02ce7ba1e8d6 is not using Graviton processor.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0b17f02ce7ba1e8d6",
+              "status": "alarm",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "elasticSearchDocker is not using Graviton processor.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0e6cdcc7fbadc55b4",
+              "status": "alarm",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "mongo-db-instance-test is not using Graviton processor.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0e7d299a682aa8c11",
+              "status": "alarm",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "Cloud Defender is not using Graviton processor.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0a272d07055e14ff1",
+              "status": "alarm",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "CopilotLookoverAI is not using Graviton processor.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0779ec6ec993ca07a",
+              "status": "alarm",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "ubuntu-test-final is not using Graviton processor.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0f02c494bd2aa66ea",
+              "status": "alarm",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "Appsmith_backend is not using Graviton processor.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0cf85c68cb9355c23",
+              "status": "alarm",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "lookover-api is not using Graviton processor.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0e318bfd5d116d34b",
+              "status": "alarm",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "trials2 is not using Graviton processor.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0acc16e0f945a5290",
+              "status": "alarm",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "ubuntu-test is not using Graviton processor.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0c6b18af18da6c68c",
+              "status": "alarm",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "es-ec2 is not using Graviton processor.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-081b04b1664a554ae",
+              "status": "alarm",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            }
+          ],
+          "control_id": "control.ec2_instance_with_graviton",
+          "description": "With graviton processor (arm64 - 64-bit ARM architecture), you can save money in two ways. First, your functions run more efficiently due to the Graviton architecture. Second, you pay less for the time that they run. In fact, Lambda functions powered by Graviton are designed to deliver up to 19 percent better performance at 20 percent lower cost.",
+          "severity": "low",
+          "tags": {
+            "category": "Cost",
+            "class": "deprecated",
+            "plugin": "aws",
+            "service": "AWS/EC2"
+          },
+          "title": "EC2 instances without graviton processor should be reviewed",
+          "run_status": 4,
+          "run_error": ""
+        },
+        {
+          "summary": { "alarm": 0, "ok": 0, "info": 0, "skip": 0, "error": 0 },
+          "results": null,
+          "control_id": "control.ec2_network_lb_unused",
+          "description": "Network load balancers with no targets attached still cost money and should be deleted.",
+          "severity": "low",
+          "tags": {
+            "category": "Cost",
+            "class": "unused",
+            "plugin": "aws",
+            "service": "AWS/EC2"
+          },
+          "title": "Network load balancers having no targets attached should be deleted",
+          "run_status": 4,
+          "run_error": ""
+        },
+        {
+          "summary": { "alarm": 0, "ok": 0, "info": 0, "skip": 0, "error": 0 },
+          "results": null,
+          "control_id": "control.ec2_reserved_instance_lease_expiration_days",
+          "description": "EC2 reserved instances that are scheduled for expiration or have expired in the preceding 30 days should be reviewed.",
+          "severity": "low",
+          "tags": {
+            "category": "Cost",
+            "class": "managed",
+            "plugin": "aws",
+            "service": "AWS/EC2"
+          },
+          "title": "EC2 reserved instances scheduled for expiration should be reviewed",
+          "run_status": 4,
+          "run_error": ""
+        },
+        {
+          "summary": { "alarm": 1, "ok": 0, "info": 0, "skip": 0, "error": 17 },
+          "results": [
+            {
+              "reason": "CloudWatch metrics not available for C7N.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-064ef2685f1c5cecb",
+              "status": "error",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "CloudWatch metrics not available for lookover-ai-test-1.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0fe6ef2702cf5eee4",
+              "status": "error",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "CloudWatch metrics not available for Dream Factory.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0395f6b638adf2ba2",
+              "status": "error",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "CloudWatch metrics not available for i-0df46766614b9082f.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0df46766614b9082f",
+              "status": "error",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "CloudWatch metrics not available for lookover-platform-api.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0a921d0d8e11d350e",
+              "status": "error",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "CloudWatch metrics not available for test-dot-slash.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-031fc74f32410db7d",
+              "status": "error",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "CloudWatch metrics not available for Elastic Search.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-06f180457ad31ed8b",
+              "status": "error",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "CloudWatch metrics not available for i-0b17f02ce7ba1e8d6.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0b17f02ce7ba1e8d6",
+              "status": "error",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "CloudWatch metrics not available for elasticSearchDocker.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0e6cdcc7fbadc55b4",
+              "status": "error",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "CloudWatch metrics not available for mongo-db-instance-test.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0e7d299a682aa8c11",
+              "status": "error",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "CloudWatch metrics not available for Cloud Defender.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0a272d07055e14ff1",
+              "status": "error",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "CloudWatch metrics not available for CopilotLookoverAI.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0779ec6ec993ca07a",
+              "status": "error",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "CloudWatch metrics not available for ubuntu-test-final.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0f02c494bd2aa66ea",
+              "status": "error",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "CloudWatch metrics not available for lookover-api.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0e318bfd5d116d34b",
+              "status": "error",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "CloudWatch metrics not available for trials2.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0acc16e0f945a5290",
+              "status": "error",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "CloudWatch metrics not available for ubuntu-test.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0c6b18af18da6c68c",
+              "status": "error",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "CloudWatch metrics not available for es-ec2.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-081b04b1664a554ae",
+              "status": "error",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "Appsmith_backend is averaging 2.183660375210666% max utilization over the last 1 days.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0cf85c68cb9355c23",
+              "status": "alarm",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            }
+          ],
+          "control_id": "control.instances_with_low_utilization",
+          "description": "Resize or eliminate under utilized instances.",
+          "severity": "low",
+          "tags": {
+            "category": "Cost",
+            "class": "unused",
+            "plugin": "aws",
+            "service": "AWS/EC2"
+          },
+          "title": "Which EC2 instances have very low CPU utilization?",
+          "run_status": 4,
+          "run_error": ""
+        },
+        {
+          "summary": { "alarm": 0, "ok": 0, "info": 18, "skip": 0, "error": 0 },
+          "results": [
+            {
+              "reason": "C7N has type t2.micro and is stopped.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-064ef2685f1c5cecb",
+              "status": "info",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "lookover-ai-test-1 has type t2.micro and is stopped.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0fe6ef2702cf5eee4",
+              "status": "info",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "Dream Factory has type t3a.small and is stopped.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0395f6b638adf2ba2",
+              "status": "info",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "i-0df46766614b9082f has type t2.micro and is stopped.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0df46766614b9082f",
+              "status": "info",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "lookover-platform-api has type t2.micro and is stopped.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0a921d0d8e11d350e",
+              "status": "info",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "test-dot-slash has type t2.xlarge and is stopped.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-031fc74f32410db7d",
+              "status": "info",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "Elastic Search has type t3a.small and is stopped.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-06f180457ad31ed8b",
+              "status": "info",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "i-0b17f02ce7ba1e8d6 has type t3a.small and is stopped.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0b17f02ce7ba1e8d6",
+              "status": "info",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "elasticSearchDocker has type t3.small and is stopped.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0e6cdcc7fbadc55b4",
+              "status": "info",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "mongo-db-instance-test has type t2.medium and is stopped.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0e7d299a682aa8c11",
+              "status": "info",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "Cloud Defender has type c5a.xlarge and is stopped.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0a272d07055e14ff1",
+              "status": "info",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "CopilotLookoverAI has type t3.xlarge and is stopped.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0779ec6ec993ca07a",
+              "status": "info",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "ubuntu-test-final has type c5.xlarge and is stopped.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0f02c494bd2aa66ea",
+              "status": "info",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "Appsmith_backend has type t3.medium and is stopped.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0cf85c68cb9355c23",
+              "status": "info",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "lookover-api has type m4.large and is stopped.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0e318bfd5d116d34b",
+              "status": "info",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "trials2 has type t2.medium and is stopped.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0acc16e0f945a5290",
+              "status": "info",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "ubuntu-test has type t2.xlarge and is stopped.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-0c6b18af18da6c68c",
+              "status": "info",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            },
+            {
+              "reason": "es-ec2 has type t2.micro and is stopped.",
+              "resource": "arn:aws:ec2:ap-south-1:895261382174:instance/i-081b04b1664a554ae",
+              "status": "info",
+              "dimensions": [
+                { "key": "region", "value": "ap-south-1" },
+                { "key": "account_id", "value": "895261382174" }
+              ]
+            }
+          ],
+          "control_id": "control.large_ec2_instances",
+          "description": "Large EC2 instances are unusual, expensive and should be reviewed.",
+          "severity": "low",
+          "tags": {
+            "category": "Cost",
+            "class": "deprecated",
+            "plugin": "aws",
+            "service": "AWS/EC2"
+          },
+          "title": "Large EC2 instances should be reviewed",
+          "run_status": 4,
+          "run_error": ""
+        },
+        {
+          "summary": { "alarm": 0, "ok": 0, "info": 0, "skip": 0, "error": 0 },
+          "results": null,
+          "control_id": "control.long_running_ec2_instances",
+          "description": "Instances should ideally be ephemeral and rehydrated frequently, check why these instances have been running for so long.",
+          "severity": "low",
+          "tags": {
+            "category": "Cost",
+            "class": "deprecated",
+            "plugin": "aws",
+            "service": "AWS/EC2"
+          },
+          "title": "Long running EC2 instances should be reviewed",
+          "run_status": 4,
+          "run_error": ""
+        }
+      ]
+    }
+  ],
+  "controls": null
+}

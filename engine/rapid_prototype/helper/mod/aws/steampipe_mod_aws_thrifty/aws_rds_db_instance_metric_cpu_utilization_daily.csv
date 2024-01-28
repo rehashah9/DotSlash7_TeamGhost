@@ -1,0 +1,6 @@
+db_instance_identifier,metric_name,namespace,average,maximum,minimum,sample_count,sum,unit,timestamp,partition,region,account_id,_ctx
+test-1,CPUUtilization,AWS/RDS,2.9044152700946104,4.516666666666667,2.3665088994067065,1440,4182.357988936239,Percent,2024-01-26T20:30:00+05:30,aws,ap-south-1,895261382174,"{""connection_name"":""aws_demo""}"
+test-1,CPUUtilization,AWS/RDS,2.872609802212431,4.066463343499491,2.358569190252359,1440,4136.5581151859005,Percent,2024-01-24T20:30:00+05:30,aws,ap-south-1,895261382174,"{""connection_name"":""aws_demo""}"
+test-1,CPUUtilization,AWS/RDS,2.8869025175620364,4.000066667777796,2.533333333333333,56,161.66654098347405,Percent,2024-01-27T20:30:00+05:30,aws,ap-south-1,895261382174,"{""connection_name"":""aws_demo""}"
+test-1,CPUUtilization,AWS/RDS,2.876660415643111,4.140700503215916,2.3334111137037903,1440,4142.39099852608,Percent,2024-01-25T20:30:00+05:30,aws,ap-south-1,895261382174,"{""connection_name"":""aws_demo""}"
+test-1,CPUUtilization,AWS/RDS,3.0493767527121456,45.50605803043182,2.416586113796207,537,1637.515316206422,Percent,2024-01-23T20:30:00+05:30,aws,ap-south-1,895261382174,"{""connection_name"":""aws_demo""}"
