@@ -4,6 +4,7 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.svm import SVR
 from sklearn.metrics import mean_squared_error
 import matplotlib.pyplot as plt
+import joblib
 
 # Load and preprocess the data
 data = pd.read_csv('random_live_data.csv')
@@ -58,3 +59,8 @@ plt.legend()
 plt.title('Support Vector Machine Time Series Prediction')
 plt.show()
 
+# Save the trained SVM model
+joblib.dump(svm_model, 'svm_model.pkl')
+
+# Load the saved SVM model
+loaded_svm_model = joblib.load('svm_model.pkl')
