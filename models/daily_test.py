@@ -4,7 +4,6 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import mean_squared_error
 import matplotlib.pyplot as plt
 import joblib
-import streamlit as st
 
 # Load the saved SVM model
 loaded_svm_model = joblib.load('svm_model_daily.pkl')
@@ -67,11 +66,8 @@ for _ in range(forecast_days):
 # Extend the index to include the forecasted days
 forecast_index = pd.date_range(start=original_data.index[-1] + pd.Timedelta(days=1), periods=forecast_days, freq='D')
 
-st.title('Support Vector Machine Time Series Prediction')
-st.write("### Actual vs Predicted CPU Utilization")
-
 # Plot the original data and the forecasted values
-fig = plt.figure(figsize=(12,6))
+plt.figure(figsize=(12,6))
 plt.plot(original_data.index[look_back:], y_original_inv, label='Actual')
 plt.plot(original_data.index[look_back:], y_pred_original_inv, label='Predicted')
 plt.plot(forecast_index, forecasted_values, label='Forecast', linestyle='--')
@@ -79,4 +75,4 @@ plt.xlabel('Date')
 plt.ylabel('Maximum CPU Utilization')
 plt.legend()
 plt.title('Support Vector Machine Time Series Prediction (Original Data + Forecast)')
-st.write(fig)
+plt.show()
