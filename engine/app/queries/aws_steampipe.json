@@ -18,6 +18,20 @@
         "query": "select instance_id, timestamp, minimum, maximum, average, sample_count from aws_ec2_instance_metric_cpu_utilization_hourly where instance_id = '{{instance_id}}' order by timestamp;",
         "index": "aws_account",
         "type": "aws_account"
+    },
+    "aws_ec2_instance_metric_cpu_utilization_daily":{
+        "query": "select instance_id, timestamp, minimum, maximum, average, sample_count from aws_ec2_instance_metric_cpu_utilization_daily where instance_id = '{{instance_id}}' order by timestamp;",
+        "index": "aws_account",
+        "type": "aws_account"
+    },
+    "aws_ec2_list":{
+        "query": "SELECT instance_id FROM {{connection_id}}.aws_ec2_instance;",
+        "index": "aws_ec2_instance",
+        "type": "aws_ec2_instance"
+    },
+    "aws_ec2_instance_details":{
+        "query": "SELECT * FROM {{connection_id}}.aws_ec2_instance where instance_id = '{{instance_id}}';",
+        "index": "aws_ec2_instance_details",
+        "type": "aws_ec2_instance_details"
     }
-
 }
