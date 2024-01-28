@@ -1,0 +1,36 @@
+{
+    "mappings": {
+      "properties": {
+        "level": {
+          "type": "keyword"
+        },
+        "message": {
+          "type": "text"
+        },
+        "resourceId": {
+          "type": "keyword"
+        },
+        "timestamp": {
+          "type": "date",
+          "format": "strict_date_optional_time||epoch_millis"
+        },
+        "traceId": {
+          "type": "keyword"
+        },
+        "spanId": {
+          "type": "keyword"
+        },
+        "commit": {
+          "type": "keyword"
+        },
+        "metadata": {
+          "properties": {
+            "parentResourceId": {
+              "type": "keyword"
+            }
+          }
+        }
+      }
+    }
+  }
+  

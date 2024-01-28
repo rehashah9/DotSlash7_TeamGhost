@@ -1,0 +1,74 @@
+version: '3'
+name: cloudghost
+services:
+  elasticsearch:
+    build:
+      context: ./elasticsearch
+    image: elasitc
+    container_name: core-elasticsearch
+    ports:
+      - 9200:9200
+      - 9300:9300
+    deploy:
+      resources:
+        limits:
+          memory: 2GB
+    networks:
+      - app-network
+    restart: always
+
+
+  core: 
+    build:
+      context: ./core
+      dockerfile: Dockerfile
+    container_name: core
+    ports:
+      - "${CORE_API_PORT}:${CORE_API_PORT}"
+      - "${CORE_STEAMPIPE_PORT}:9193"
+    networks:
+      - app-network
+    env_file:
+      - .env
+    environment:
+      API_PORT: ${CORE_API_PORT}
+      STEAMPIPE_PORT: ${CORE_STEAMPIPE_PORT}
+      STEAMPIPE_DATABASE_PASSWORD: ${CORE_STEAMPIPE_DATABASE_PASSWORD}
+      STEAMPIPE_INTROSPECTION: ${CORE_STEAMPIPE_INTROSPECTION}
+      CG_STEAMPIPE_PORT: ${CORE_STEAMPIPE_PORT}
+      CG_STEAMPIPE_HOSTNAME: "localhost"
+      CG_STEAMPIPE_USERNAME: ${CORE_STEAMPIPE_DATABASE_USERNAME}
+      CG_STEAMPIPE_PASSWORD: ${CORE_STEAMPIPE_DATABASE_PASSWORD}
+      CG_STEAMPIPE_DATABASE: ${CORE_STEAMPIPE_DATABASE_NAME}
+
+    develop:
+      watch:
+        - action: sync
+          path: ./core
+
+  # api:
+  #   build:
+  #     context: ./api
+  #     dockerfile: Dockerfile
+  #   container_name: api
+  #   ports:
+  #     - "${API_API_PORT}:${API_API_PORT}"
+  #   networks:
+  #     - app-network
+  #   env_file:
+  #     - .env
+  #   restart: always
+  #   environment:
+  #     API_PORT: ${API_API_PORT}
+  #     CG_STEAMPIPE_PORT: ${CORE_STEAMPIPE_PORT}
+  #     CG_STEAMPIPE_HOSTNAME: "core"
+  #     CG_STEAMPIPE_USERNAME: ${CORE_STEAMPIPE_DATABASE_USERNAME}
+  #     CG_STEAMPIPE_PASSWORD: ${CORE_STEAMPIPE_DATABASE_PASSWORD}
+  #     CG_STEAMPIPE_DATABASE: ${CORE_STEAMPIPE_DATABASE_NAME}
+  #   depends_on:
+  #     - core
+    
+
+networks:
+  app-network:
+    driver: bridge
